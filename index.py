@@ -1,5 +1,8 @@
-a = 100
-if a > 0:
+from collections import Iterable
+import os
+
+a1 = 100
+if a1 > 0:
     print('python')
 # b = input() or 20
 if int(10) < 20:
@@ -56,7 +59,6 @@ def my_xy(x, y):
 h1, h2 = my_xy(2, 3)
 print(h1)
 print(h2)
-
 print(my_xy(5, 6))
 
 
@@ -78,7 +80,6 @@ def my_xyz(x, y=2, z=3):
 
 
 print(my_xyz(1))
-
 print(my_xyz(5, z=99))
 
 
@@ -100,7 +101,6 @@ def person(name, age, **kw):
 
 
 person('jane', 25, city='Beijing')
-
 extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jack', 24, **extra)
 
@@ -113,6 +113,55 @@ def f1(a, b, c=0, *args, **kw):
 def f2(a, b, c=0, *, d, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
 
+
 args = (1, 2, 3)
 kw = {'d': 88, 'x': '#'}
 f2(*args, **kw)
+
+
+# recursion
+def k(n):
+    if n == 1:
+        return 1
+    return n * k(n - 1)
+
+
+k(10)
+# slice
+m = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(m[:4])
+print(m[-4: -1])
+print(m[:-4])
+print(m[-4])
+print(m)
+
+# iteration
+print(isinstance('abc', Iterable))
+for x, y in [(1, 1), (2, 4), (3, 9)]:
+    print(x, y)
+
+# list Comprehensions
+print([x * x for x in range(1, 11)])
+
+print([m + n for m in 'ABC' for n in 'XYZ'])
+
+print([d for d in os.listdir('./')])
+
+L1 = ['Hello', 'World', 18, 'Apple', None]
+L2 = [s.lower() for s in L1 if isinstance(s, str)]
+print(L2)
+
+
+# generator
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+
+for n in fib(6):
+    print(n)
