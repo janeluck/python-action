@@ -171,7 +171,6 @@ print('-----------------------')
 for x in [1, 2, 3, 4, 5]:
     pass
 
-
 # 首先获得Iterator对象:
 it = iter([1, 2, 3, 4, 5])
 # 循环:
@@ -188,4 +187,35 @@ print(list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
 
 # 匿名函数
 list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+# 类
+class Student(object):
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+
+
+Student('jane', 25).print_score()
+
+# private
+
+
+class Lesson(object):
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
+
+print(Lesson('Math').get_name())
+
+
+
 
