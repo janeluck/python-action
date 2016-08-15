@@ -183,3 +183,9 @@ while True:
     except StopIteration:
         # 遇到StopIteration就退出循环
         break
+
+print(list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
+
+# 匿名函数
+list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
