@@ -188,6 +188,7 @@ print(list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
 # 匿名函数
 list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
+
 # 类
 class Student(object):
     def __init__(self, name, score):
@@ -199,6 +200,7 @@ class Student(object):
 
 
 Student('jane', 25).print_score()
+
 
 # private
 
@@ -216,6 +218,7 @@ class Lesson(object):
 
 print(Lesson('Math').get_name())
 
+
 # Polymorphism
 class Animal(object):
     def run(self):
@@ -223,12 +226,34 @@ class Animal(object):
 
 
 class Dog(Animal):
-
     def run(self):
         print('Dog is running...')
 
     def eat(self):
         print('Eating meat...')
+
+
+class Teacher(object):
+    name = 'Teacher'
+
+
+class Student1(object):
+
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2016 - self._birth
+
+s3 = Student1()
+s3.birth = 1999
+print(s3.age)
 
 
 
