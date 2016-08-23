@@ -16,10 +16,17 @@ def ingredients(func):
     return wrap
 
 
+# @:grammar  sugar
 @bread
 @ingredients
-def sandwich():
-    print("---ham---")
+def sandwich1():
+    print("---ham1---")
+
+sandwich1()
 
 
-sandwich()
+def sandwich2():
+    print("---ham2---")
+
+
+bread(ingredients(sandwich2))()
