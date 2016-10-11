@@ -1,5 +1,6 @@
 import scrapy
 
+
 class BlogSpider(scrapy.Spider):
 
     name = 'blogspider'
